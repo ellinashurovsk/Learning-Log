@@ -98,9 +98,8 @@ def new_entry(request, topic_id):
 def edit_entry(request, entry_id):
     """Edit an existing entry."""
     """ Редактирует существующую запись."""
-    entry = Entry.objects.get(id=entry_id)
+    entry = get_object_or_404(Entry, id=entry_id)
     topic = entry.topic
-    # topic = get_object_or_404(Entry)
     check_topic_owner(topic.owner, request)
 
     if request.method != 'POST':
