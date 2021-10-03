@@ -24,10 +24,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECRET_KEY = ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
-    '192.168.0.157',
+    'localhost',
+    'localhost:8000',
+    '192.168.0.157', 
     'learning-log-russia.herokuapp.com'
 ]
 
@@ -92,7 +94,8 @@ WSGI_APPLICATION = 'learning_log.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        # 'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': str(os.path.join(BASE_DIR, "db.sqlite3")),
     }
 }
 
