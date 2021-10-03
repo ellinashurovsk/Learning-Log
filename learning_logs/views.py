@@ -30,7 +30,6 @@ def check_topic_owner(owner,request):
 def topic(request, topic_id):
     """Display a single topic and all its entries."""
     """Выводит одну тему и все ее записи."""
-
     topic=get_object_or_404(Topic, id=topic_id)
     check_topic_owner(topic.owner, request)
     entries = topic.entry_set.order_by('-date_added')
@@ -71,6 +70,7 @@ def new_entry(request, topic_id):
     """Add a new entry for a particular topic."""
     """ Добавляет новую запись по конкретной теме."""
     topic = Topic.objects.get(id=topic_id)
+    topic=get_object_or_404(Topic, id=topic_id)
     check_topic_owner(topic.owner, request)
 
     if request.method != 'POST':
@@ -98,7 +98,7 @@ def edit_entry(request, entry_id):
     """Edit an existing entry."""
     """ Редактирует существующую запись."""
     entry = Entry.objects.get(id=entry_id)
-    topic = entry.topic
+    topic=get_object_or_404(Topic)
     check_topic_owner(topic.owner, request)
 
     if request.method != 'POST':
