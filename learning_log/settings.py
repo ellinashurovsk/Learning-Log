@@ -27,7 +27,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '192.168.0.157'
+    '192.168.0.157',
+    'learning-log-russia.herokuapp.com'
 ]
 
 
