@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 
@@ -28,8 +29,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     'localhost',
-    'localhost:8000',
-    '192.168.0.157', 
+    'localhost:8000', 
     'learning-log-russia.herokuapp.com'
 ]
 
@@ -38,15 +38,13 @@ ALLOWED_HOSTS = [
 
 INSTALLED_APPS = [
     # My apps.
-    # Мои приложения.
     'learning_logs',
     'users',
 
-    # Стороннине приложения.
+    # Therd party apps.
     'bootstrap4',
 
     # Default django apps.
-    # Придожения django  по умолчанию.
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -67,7 +65,6 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'learning_log.urls'
 
-import os
 
 TEMPLATES = [
     {
@@ -144,11 +141,9 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # My settings.
-# Мои настройки.
 LOGIN_URL = '/users/login/'
 
 # Heroku settings.
-# Настройки Heroku.
 import django_heroku
 django_heroku.settings(locals())
 
